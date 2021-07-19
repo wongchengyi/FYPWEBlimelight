@@ -105,39 +105,3 @@ class _chatContainerState extends State<chatContainer> {
     );
   }
 }
-
-/*
-
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Image.asset('assets/images/comment.png'),
-                          ),
-                        ),
-                        Expanded(
-                            child: TextField(
-                          //the controller for what action should be taken
-                          //controller: ,
-                          decoration: InputDecoration(
-                              hintText: "Enter Text...",
-                              hintStyle: TextStyle(color: Colors.black),
-                              border: InputBorder.none),
-                        )),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(colors: [
-                                  const Color(0x36FFFFFF),
-                                  const Color(0x0FFFFFFF)
-                                ]),
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Image.asset('assets/images/comment.png'),
-                          ),
-                        )*/
