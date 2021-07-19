@@ -447,26 +447,3 @@ Widget courseStructure(BuildContext context, String desc, String count) {
     ),
   );
 }
-
-/*Widget enrollButton(bool status) {
-  var enroll;
-  return FlatButton(
-      onPressed: () {},
-      child: FlatButton(
-        autofocus: true,
-        child: FittedBox(
-          fit: BoxFit.fill,
-          child: Text("$enroll".toUpperCase(),
-              style: const TextStyle(
-                //fontSize: 10,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF222AC9),
-              )),
-        ),
-        onPressed: () {
-          status = true;
-        }, //=> changeText,
-        color: Color(0xFF93FFBA),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      ));
-}*/

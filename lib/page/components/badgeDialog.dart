@@ -31,7 +31,7 @@ class badgeDialog extends StatelessWidget {
             //Container A for the title header and two buttons
             Container(
               width: this_width,
-              height: this_height * 0.15,
+              height: this_height * 0.12,
               child: Padding(
                 padding: EdgeInsets.all(20),
                 //padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
@@ -44,12 +44,12 @@ class badgeDialog extends StatelessWidget {
                           context, "Title holder 1", 0xFF000000, 0.03),
                     ),
                     //save button
-                    createButton(context, "save", 0xFF000000, 0.03, false),
+                    createButton(context, "save", 0xFFE9F8ED, 0.03, false),
                     SizedBox(
                       width: this_width * 0.015,
                     ),
                     //cancel button
-                    createButton(context, "cancel", 0xFF000000, 0.03, false),
+                    createButton(context, "cancel", 0xFFE487B8, 0.03, false),
                   ],
                 ),
               ),
@@ -57,19 +57,41 @@ class badgeDialog extends StatelessWidget {
             //Container B for the displayed badges
             Container(
                 width: this_width,
-                height: this_height * 0.4,
-                color: Colors.blue,
+                height: this_height * 0.43,
+                color: Colors.transparent,
                 child: Padding(
                   padding: EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      createText(context, "Title holder 2", 0xFF000000, 0.03),
-                      //displayBadges('assets/images/badges.png'),
+                      Align(
+                        alignment: FractionalOffset(0.1, 0),
+                        child: createText(
+                            context, "Title holder 2", 0xFF000000, 0.03),
+                      ),
+                      SizedBox(
+                        height: this_height * 0.05,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          buildBadgesButton(
+                              context, 'assets/images/badges.png'),
+                          buildBadgesButton(
+                              context, 'assets/images/badges.png'),
+                          buildBadgesButton(
+                              context, 'assets/images/badges.png'),
+                          buildBadgesButton(
+                              context, 'assets/images/badges.png'),
+                          buildBadgesButton(
+                              context, 'assets/images/badges.png'),
+                          buildBadgesButton(
+                              context, 'assets/images/badges.png'),
+                        ],
+                      )
                     ],
                   ),
                 )),
-            //displayBadges('assets/images/badges.png'),
             //Container C for showing the remaining badges
             Container(
               width: this_width,
@@ -103,55 +125,30 @@ class badgeDialog extends StatelessWidget {
             style: const TextStyle(
               //fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF222AC9),
+              color: Colors.black,
             )),
       ),
       onPressed: () {}, //=> changeText,
-      color: Color(0xFF93FFBA),
+      color: Color(colorCode),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     );
   }
 
-  //display badges by button style
-  displayBadges(String picURL) {
-    return ButtonTheme(
-      minWidth: double.minPositive,
-      height: double.infinity,
-      child: FlatButton(
-          onPressed: () {},
-          child: Image(
-            image: AssetImage(picURL),
-          )),
-    );
+  Widget buildBadgesButton(BuildContext context, String picURL) {
+    Size size = MediaQuery.of(context).size;
+    return FlatButton(
+        onPressed: () {},
+        child: Container(
+            width: size.width * 0.1,
+            height: size.height * 0.2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [Image(image: AssetImage(picURL)), Text("")],
+            )));
   }
 }
-//Image(image: AssetImage(picURL)),
 /*
 
-              //container B for the displayed badges section showing what badges is showing rn
-              Container(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      createNonBoldText(
-                          context, "Text title", 0xFF000000, 0.03),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          hoverBadges(context, "picURL"),
-                          hoverBadges(context, "picURL"),
-                          hoverBadges(context, "picURL"),
-                          hoverBadges(context, "picURL"),
-                          hoverBadges(context, "picURL"),
-                          hoverBadges(context, "picURL")
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
               //container C to show all of the remaining+possible badges to be selected
               Container(
                 child: Column(
