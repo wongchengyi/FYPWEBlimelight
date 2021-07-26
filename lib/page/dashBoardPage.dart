@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
 import 'package:practice/page/components/SideDrawer.dart';
 import 'package:practice/page/components/components.dart';
+import 'package:practice/page/dialog/dialog_Helper_Reminder.dart';
 import 'package:practice/page/dialog/dialog_helper.dart';
 
 import 'firstmenupage.dart';
@@ -140,11 +141,6 @@ class dashBoardPage extends StatelessWidget {
                                   FlatButton(
                                     onPressed: () {
                                       dialogHelper.exit(context);
-                                      /*showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return badgeDialog();
-                                          });*/
                                     },
                                     child: buildText2(
                                         GreenfontTheme, "Badge Wall"),
@@ -178,7 +174,13 @@ class dashBoardPage extends StatelessWidget {
                               decoration: boxDecoration,
                               child: Column(
                                 children: <Widget>[
-                                  buildText2(GreenfontTheme, "Reminders"),
+                                  FlatButton(
+                                    onPressed: () {
+                                      dialog_Helper_Reminder.exit(context);
+                                    },
+                                    child:
+                                        buildText2(GreenfontTheme, "Reminders"),
+                                  ),
                                 ],
                               ),
                             ),

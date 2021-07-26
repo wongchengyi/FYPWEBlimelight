@@ -96,6 +96,8 @@ class badgesPage extends StatelessWidget {
                               ],
                             ),
                             Container(
+                              color: Colors.transparent,
+                              height: size.height * 0.53,
                               child: ListView(
                                 shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
@@ -108,7 +110,7 @@ class badgesPage extends StatelessWidget {
                                   ),
                                   Padding(padding: EdgeInsets.only(bottom: 20)),
                                   Container(
-                                    height: size.height * 0.2,
+                                    height: size.height * 0.15,
                                     child: GridView.count(
                                       //mainAxisSpacing: 5,
                                       crossAxisCount: 4,
@@ -142,7 +144,9 @@ class badgesPage extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-
+                                  SizedBox(
+                                    height: size.height * 0.02,
+                                  ),
                                   //for uncollected Badges
                                   Text(
                                     "Unollected Badges",
@@ -151,7 +155,7 @@ class badgesPage extends StatelessWidget {
                                   ),
                                   Padding(padding: EdgeInsets.only(bottom: 20)),
                                   Container(
-                                    height: size.height * 0.2,
+                                    height: size.height * 0.15,
                                     child: GridView.count(
                                       //mainAxisSpacing: 5,
                                       crossAxisCount: 4,
@@ -275,6 +279,7 @@ class badgesPage extends StatelessWidget {
   Widget badgeContainer(
       double widthSize, TextStyle fontTheme, String textItems, String picURL) {
     return Container(
+        height: widthSize,
         width: widthSize,
         color: Colors.transparent,
         child: FlatButton(

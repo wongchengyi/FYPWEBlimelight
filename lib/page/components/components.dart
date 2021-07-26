@@ -6,4 +6,4 @@ export 'otherUserPosts.dart';
 export 'userPosts.dart';
 export 'searchBar.dart';
 export 'courseInfo.dart';
-export 'badgeDialog.dart';
+export '../dialog/badgeDialog.dart';

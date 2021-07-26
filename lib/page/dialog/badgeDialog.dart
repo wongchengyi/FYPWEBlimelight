@@ -49,7 +49,23 @@ class badgeDialog extends StatelessWidget {
                       width: this_width * 0.015,
                     ),
                     //cancel button
-                    createButton(context, "cancel", 0xFFE487B8, 0.03, false),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: FittedBox(
+                        fit: BoxFit.fill,
+                        child: Text("cancel".toUpperCase(),
+                            style: const TextStyle(
+                              //fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            )),
+                      ),
+                      color: Color(0xFFE487B8),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
                   ],
                 ),
               ),
@@ -57,7 +73,7 @@ class badgeDialog extends StatelessWidget {
             //Container B for the displayed badges
             Container(
                 width: this_width,
-                height: this_height * 0.43,
+                height: this_height * 0.37,
                 color: Colors.transparent,
                 child: Padding(
                   padding: EdgeInsets.all(20),
@@ -95,8 +111,56 @@ class badgeDialog extends StatelessWidget {
             //Container C for showing the remaining badges
             Container(
               width: this_width,
-              height: this_height * 0.45,
-              color: Colors.yellow,
+              height: this_height * 0.5,
+              color: Colors.transparent,
+              child: Column(
+                children: [
+                  Align(
+                    alignment: FractionalOffset(0.1, 0),
+                    child:
+                        createText(context, "Title holder 3", 0xFF000000, 0.03),
+                  ),
+                  Container(
+                    height: this_height * 0.45,
+                    child: ListView(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: <Widget>[
+                        GridView.count(
+                          crossAxisCount: 6,
+                          shrinkWrap: true,
+                          children: [
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                            buildBadgesButton(
+                                context, 'assets/images/badges.png'),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ]),
         ),
@@ -147,32 +211,3 @@ class badgeDialog extends StatelessWidget {
             )));
   }
 }
-/*
-
-              //container C to show all of the remaining+possible badges to be selected
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    createNonBoldText(context, "Text title", 0xFF000000, 0.03),
-                    GridView.count(
-                      primary: false,
-                      padding: const EdgeInsets.all(20),
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      crossAxisCount: 6,
-                    )
-                  ],
-                ),
-              ),
-            ],
-            
-            Container(
-        child: ConstrainedBox(
-      constraints: BoxConstraints.expand(),
-      child: FlatButton(
-        onPressed: () {},
-        child: Image(image: AssetImage(picURL)),
-      ),
-    ));
-            */
