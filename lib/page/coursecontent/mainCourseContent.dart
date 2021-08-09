@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice/page/components/components.dart';
+import 'package:practice/page/dialog/dialog_Helper_Enroll.dart';
 import 'package:practice/page/pages.dart';
 import 'package:practice/page/quizPage/mainQuizPage.dart';
 import 'exportCourseContent.dart';
@@ -325,12 +326,14 @@ Widget organizationDetails(BuildContext context, String picURL, String title,
                           )),
                     ),
                     onPressed: () {
-                      print("Enrolled");
+                      dialog_Helper_Enroll.exit(context);
                       enroll = "ENROLLED";
-                      Navigator.push(
+
+                      /*Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (content) => mainQuizPage()));
+                              builder: (content) =>
+                                  dialog_Helper_Enroll.exit(context)));*/
                     }, //=> changeText,
                     color: Color(0xFF93FFBA),
                     shape: RoundedRectangleBorder(
