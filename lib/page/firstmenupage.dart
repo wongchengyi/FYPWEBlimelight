@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 
 import 'package:practice/page/pages.dart';
 
+//can use stack for the welcomepage
 class firstmenupage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

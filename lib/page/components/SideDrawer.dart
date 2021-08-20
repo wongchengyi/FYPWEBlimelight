@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
 import 'package:practice/page/chatPage/mainChatPage.dart';
+import 'package:practice/page/components/testingPage.dart';
 import 'package:practice/page/coursecontent/exportCourseContent.dart';
 import 'package:practice/page/pages.dart';
 import 'package:practice/page/badge/exportbadge.dart';
@@ -73,6 +74,14 @@ class SideDrawer extends StatelessWidget {
               icon: Icons.supervised_user_circle_rounded, //change logo
               onClicked: () => SelectedItem(context, 5),
             ),
+            //7th property
+            const SizedBox(height: 48),
+            //method for listing out "properties in the sidedrawer"
+            buildMenuItem(
+              text: 'Testing Page', //change text
+              icon: Icons.supervised_user_circle_rounded, //change logo
+              onClicked: () => SelectedItem(context, 6),
+            ),
           ],
         ),
       ),
@@ -133,6 +142,11 @@ class SideDrawer extends StatelessWidget {
       case 5:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => mainChatPage(), //can customize directed page
+        ));
+        break;
+      case 6:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => testingPage(), //can customize directed page
         ));
         break;
     }
