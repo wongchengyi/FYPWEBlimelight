@@ -3,6 +3,7 @@ import 'package:practice/constant.dart';
 import 'package:practice/page/badge/exportbadge.dart';
 import 'package:practice/page/components/components.dart';
 import 'package:practice/page/registrationPage/signInPage/signInPage.dart';
+import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
 
 import '../CalendarPage2.dart';
 import '../firstmenupage.dart';
@@ -62,7 +63,10 @@ class _testingPageState extends State<testingPage> {
               children: <Widget>[
                 buildItem(
                     text: "sign in test page",
-                    onClicked: () => SelectedMenu(context, 0))
+                    onClicked: () => SelectedMenu(context, 0)),
+                buildItem(
+                    text: "Sign Up Page",
+                    onClicked: () => SelectedMenu(context, 1))
               ],
             ),
           ),
@@ -98,7 +102,7 @@ class _testingPageState extends State<testingPage> {
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => badgesPage(), //can customize directed page
+          builder: (context) => signUpPage(), //can customize directed page
         ));
         break;
     }

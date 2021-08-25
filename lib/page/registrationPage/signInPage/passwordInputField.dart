@@ -23,7 +23,8 @@ class passwordTextField extends StatelessWidget {
               icon: Icon(
                 Icons.lock,
                 color: Colors.grey,
-              )),
+              ),
+              border: InputBorder.none),
         ));
   }
 }

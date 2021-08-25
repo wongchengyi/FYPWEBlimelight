@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
 import 'package:practice/page/components/components.dart';
+import 'package:practice/page/components/roundedButton.dart';
 import 'package:practice/page/registrationPage/signInPage/passwordInputField.dart';
 import 'package:practice/page/registrationPage/signInPage/textFieldContainer.dart';
 
@@ -93,7 +94,23 @@ class _signInPageState extends State<signInPage> {
                               passwordTextField(
                                 size: size,
                                 onChanged: (value) {},
-                              )
+                              ),
+                              SizedBox(
+                                height: size.height * 0.03,
+                              ),
+                              roundedButton(
+                                text: "Login",
+                                onPressed: () {},
+                              ),
+                              SizedBox(
+                                height: size.height * 0.03,
+                              ),
+                              registerLine(
+                                size: size,
+                                text1: "Don't Have an Account Yet?",
+                                text2: "Sign Up Here",
+                                onPressed: () {},
+                              ),
                             ],
                           ),
                         ))),
@@ -160,11 +177,46 @@ class _signInPageState extends State<signInPage> {
           '1',
           style: TextStyle(color: Colors.black),
         ),
-        /* child: Image.asset(
-          picURL,
-          fit: BoxFit.cover,
-        ),*/
       ),
     );
+  }
+}
+
+class registerLine extends StatelessWidget {
+  final String text1;
+  final String text2;
+  final Function() onPressed;
+  const registerLine(
+      {Key? key,
+      required this.size,
+      required this.text1,
+      required this.text2,
+      required this.onPressed})
+      : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Column(
+      //mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          text1,
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+        FlatButton(
+            onPressed: onPressed,
+            child: Text(
+              text2,
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: size.height * 0.02,
+                  fontWeight: FontWeight.bold),
+            ))
+      ],
+    ));
   }
 }
