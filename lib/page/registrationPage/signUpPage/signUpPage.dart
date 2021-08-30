@@ -1,9 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:practice/page/components/logoButton.dart';
 import 'package:practice/page/components/roundedButton.dart';
+import 'package:practice/page/registrationPage/signUpPage/emailSignUpPage.dart';
 
 import '../../../constant.dart';
+import 'emailSignUpInfoPage.dart';
 
 class signUpPage extends StatefulWidget {
   const signUpPage({Key? key}) : super(key: key);
@@ -68,13 +71,29 @@ class _signUpPageState extends State<signUpPage> {
                                       crossAxisCount: 2,
                                       children: <Widget>[
                                         //1st button
-                                        roundedElevatedButton(size: size),
+                                        logoButton(
+                                          size: size,
+                                          logoURL:
+                                              'assets/images/googleLogo.png',
+                                        ),
                                         //2nd button
-                                        roundedElevatedButton(size: size),
+                                        logoButton(
+                                          size: size,
+                                          logoURL:
+                                              'assets/images/facebookLogo.jpeg',
+                                        ),
                                         //3rd button
-                                        roundedElevatedButton(size: size),
+                                        logoButton(
+                                          size: size,
+                                          logoURL:
+                                              'assets/images/twitterLogo.png',
+                                        ),
                                         //4th button
-                                        roundedElevatedButton(size: size),
+                                        logoButton(
+                                          size: size,
+                                          logoURL:
+                                              'assets/images/linkedinLogo.png',
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -82,7 +101,12 @@ class _signUpPageState extends State<signUpPage> {
                                     height: size.height * 0.025,
                                   ),
                                   roundedButton(
-                                      text: "USE EMAIL", onPressed: () {})
+                                      text: "USE EMAIL",
+                                      onPressed: () => Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                emailSignUpPage(), //can customize directed page
+                                          )))
                                 ],
                               )
                             ],
@@ -92,40 +116,6 @@ class _signUpPageState extends State<signUpPage> {
                 ),
               )),
         ));
-  }
-}
-
-class roundedElevatedButton extends StatelessWidget {
-  const roundedElevatedButton({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      //height: size.height * 0.005,
-      //width: size.width * 0.005,
-      child: Center(
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.black, //splash color
-              minimumSize: Size(size.width * 0.1, size.height * 0.1),
-              splashFactory: InkRipple.splashFactory,
-              shape: CircleBorder(),
-              elevation: 20),
-          child: Text(
-            "1",
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-      ),
-    );
   }
 }
 

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
 import 'package:practice/page/components/components.dart';
+import 'package:practice/page/components/logoButton.dart';
 import 'package:practice/page/components/roundedButton.dart';
 import 'package:practice/page/registrationPage/signInPage/passwordInputField.dart';
 import 'package:practice/page/registrationPage/signInPage/textFieldContainer.dart';
+import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
 
 import 'inputFieldContainer.dart';
 
@@ -57,7 +59,7 @@ class _signInPageState extends State<signInPage> {
                     flex: 5,
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          //color: Colors.red,
                           borderRadius: BorderRadius.circular(20)),
                     )),
                 Expanded(
@@ -106,11 +108,14 @@ class _signInPageState extends State<signInPage> {
                                 height: size.height * 0.03,
                               ),
                               registerLine(
-                                size: size,
-                                text1: "Don't Have an Account Yet?",
-                                text2: "Sign Up Here",
-                                onPressed: () {},
-                              ),
+                                  size: size,
+                                  text1: "Don't Have an Account Yet?",
+                                  text2: "Sign Up Here",
+                                  onPressed: () => Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            signUpPage(), //can customize directed page
+                                      ))),
                             ],
                           ),
                         ))),
@@ -137,46 +142,19 @@ class _signInPageState extends State<signInPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          socialMediaButtons(picURL1),
-          socialMediaButtons(picURL2),
-          shadowSocialMediaButton(context, picURL3)
+          logoButton(
+            size: size,
+            logoURL: 'assets/images/googleLogo.png',
+          ),
+          logoButton(
+            size: size,
+            logoURL: 'assets/images/facebookLogo.jpeg',
+          ),
+          logoButton(
+            size: size,
+            logoURL: 'assets/images/twitterLogo.png',
+          ),
         ],
-      ),
-    );
-  }
-
-  //social media signin icon
-  Widget socialMediaButtons(String buttonPicURL) {
-    return FlatButton(
-      minWidth: 20,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      splashColor: Colors.grey,
-      onPressed: () {},
-      child: Row(
-        children: [
-          ClipRRect(child: Image.asset(buttonPicURL))
-          //ImageIcon(AssetImage(buttonPicURL)),
-        ],
-      ),
-    );
-  }
-
-//https://stackoverflow.com/questions/66835173/how-to-change-background-color-of-elevated-button-in-flutter-from-function
-  Widget shadowSocialMediaButton(BuildContext context, String picURL) {
-    Size size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height * 0.06,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-            elevation: 10,
-            shape: CircleBorder(),
-            //splashFactory: InkSplash.splashFactory,
-            primary: Colors.white),
-        child: Text(
-          '1',
-          style: TextStyle(color: Colors.black),
-        ),
       ),
     );
   }
