@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         primaryColor:
             kPrimaryColor, //setting up those constant values(colors, text and etc)
       ),
-      home: firstmenupage(), //the class name
-
+      //home: firstmenupage(), //the class name
+      home: firstmenupage(),
       //homepage(), //callling the homepage.dart to load the initial page
     );
   }
