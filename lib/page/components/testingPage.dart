@@ -4,6 +4,8 @@ import 'package:practice/page/badge/exportbadge.dart';
 import 'package:practice/page/components/components.dart';
 import 'package:practice/page/registrationPage/signInPage/signInPage.dart';
 import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
+import 'package:practice/page/signUpFileComponents/signUpCoursePicker.dart';
+import 'package:practice/page/signUpFileComponents/signUpOccupationPicker.dart';
 
 import '../CalendarPage2.dart';
 import '../firstmenupage.dart';
@@ -66,7 +68,16 @@ class _testingPageState extends State<testingPage> {
                     onClicked: () => SelectedMenu(context, 0)),
                 buildItem(
                     text: "Sign Up Page",
-                    onClicked: () => SelectedMenu(context, 1))
+                    onClicked: () => SelectedMenu(context, 1)),
+                buildItem(
+                    text: "Sign up screen course picker",
+                    onClicked: () => SelectedMenu(context, 2)),
+                buildItem(
+                    text: "Sign up occupation screen",
+                    onClicked: () => SelectedMenu(context, 3)),
+                buildItem(
+                    text: "Sign up text field input screen",
+                    onClicked: () => SelectedMenu(context, 4)),
               ],
             ),
           ),
@@ -101,6 +112,23 @@ class _testingPageState extends State<testingPage> {
         ));
         break;
       case 1:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => signUpPage(), //can customize directed page
+        ));
+        break;
+      case 2:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) =>
+              signUpCourseImagePicker(), //can customize directed page
+        ));
+        break;
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) =>
+              occupationPicker(), //can customize directed page
+        ));
+        break;
+      case 4:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => signUpPage(), //can customize directed page
         ));
