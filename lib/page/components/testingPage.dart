@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
 import 'package:practice/page/badge/exportbadge.dart';
+import 'package:practice/page/chatPage/secondChatPage.dart';
 import 'package:practice/page/components/components.dart';
+import 'package:practice/page/questionPage/mainQuestionPage.dart';
 import 'package:practice/page/registrationPage/signInPage/signInPage.dart';
 import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
 import 'package:practice/page/signUpFileComponents/signUpCoursePicker.dart';
@@ -78,6 +80,12 @@ class _testingPageState extends State<testingPage> {
                 buildItem(
                     text: "Sign up text field input screen",
                     onClicked: () => SelectedMenu(context, 4)),
+                buildItem(
+                    text: "Second Chat page",
+                    onClicked: () => SelectedMenu(context, 5)),
+                buildItem(
+                    text: "Question Page",
+                    onClicked: () => SelectedMenu(context, 6)),
               ],
             ),
           ),
@@ -131,6 +139,18 @@ class _testingPageState extends State<testingPage> {
       case 4:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => signUpPage(), //can customize directed page
+        ));
+        break;
+      case 5:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) =>
+              secondaryChatPage(), //can customize directed page
+        ));
+        break;
+      case 6:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) =>
+              mainQuestionPage(), //can customize directed page
         ));
         break;
     }

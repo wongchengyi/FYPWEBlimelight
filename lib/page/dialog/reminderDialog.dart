@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:practice/page/dashBoardPage.dart';
+import 'package:practice/page/dialog/addNewReminder.dart';
+import 'package:practice/page/dialog/dialog_Helper_Reminder.dart';
 import 'package:practice/page/dialog/dialog_Helper_viewReminder.dart';
+import 'package:practice/page/dialog/dialog_newReminder.dart';
+import 'package:practice/page/registrationPage/signUpPage/textField.dart';
+
+import '../components/textElevatedButton.dart';
 
 class reminderDialog extends StatelessWidget {
   const reminderDialog({Key? key}) : super(key: key);
@@ -19,103 +26,120 @@ class reminderDialog extends StatelessWidget {
     );
   }
 
-  _buildChild(BuildContext context, double this_height, double this_width) =>
-      Container(
-        height: this_height,
-        width: this_width,
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-              padding: EdgeInsets.all(30),
-              child: Column(children: <Widget>[
-                //Container A for the title header and two buttons
-                Container(
-                  width: this_width,
-                  height: this_height * 0.12,
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    //padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          flex: 7,
-                          child: createText(
-                              context, "Title holder 2", 0xFF000000, 0.03),
-                        ),
-                        //save button
-                        createButton(context, "Add New Reminder", 0xFFE9F8ED,
-                            0.03, false),
-                        SizedBox(
-                          width: this_width * 0.015,
-                        ),
-                        //cancel button
-                        FlatButton(
+  _buildChild(BuildContext context, double this_height, double this_width) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      height: this_height,
+      width: this_width,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        child: Padding(
+            padding: EdgeInsets.all(30),
+            child: Column(children: <Widget>[
+              //Container A for the title header and two buttons
+              Container(
+                width: this_width,
+                height: this_height * 0.12,
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  //padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        flex: 7,
+                        child: createText(
+                            context, "Title holder 2", 0xFF000000, 0.03),
+                      ),
+                      //save button
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(202, 255, 231, 1),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              fixedSize: Size(175, 27)),
                           onPressed: () {
-                            Navigator.pop(context);
+                            dialog_newReminder.exit(context);
                           },
-                          child: FittedBox(
-                            fit: BoxFit.fill,
-                            child: Text("Close".toUpperCase(),
-                                style: const TextStyle(
-                                  //fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                )),
-                          ),
-                          color: Color(0xFFE487B8),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                        ),
-                      ],
-                    ),
+                          child: textBuilder(
+                              size: size,
+                              text: 'Add New Reminders',
+                              color: Colors.black,
+                              textSize: 0.0175)),
+                      /*createButton(context, "Add New Reminder", 0xFFE9F8ED,
+                            0.03, false),*/
+                      SizedBox(
+                        width: this_width * 0.015,
+                      ),
+                      //cancel button/close button
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.red,
+                            //primary: Color.fromRGBO(202, 255, 231, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)),
+                            fixedSize: Size(100, 27)),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Close".toUpperCase(),
+                            style: const TextStyle(
+                              //fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            )),
+                      ),
+                    ],
                   ),
                 ),
-                //Container B for containing all of the reminders in a list view method scrolling vertically
-                Container(
-                    width: this_width,
-                    height: this_height * 0.79,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(25),
-                      child: Container(
-                        height: this_height * 0.78,
-                        child: ListView(
-                          children: [
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                            addReminders(context, "Date", "Reminder Type",
-                                "topic title", "time"),
-                          ],
-                        ),
+              ),
+              //Container B for containing all of the reminders in a list view method scrolling vertically
+              Container(
+                  width: this_width,
+                  height: this_height * 0.79,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(25),
+                    child: Container(
+                      height: this_height * 0.78,
+                      child: ListView(
+                        children: [
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                          addReminders(context, "Date", "Reminder Type",
+                              "topic title", "time"),
+                        ],
                       ),
-                    ))
-              ])),
-        ),
-      );
+                    ),
+                  ))
+            ])),
+      ),
+    );
+  }
+
   //widget for creating non bold text
   Widget createText(
       BuildContext context, String text, int colorCode, num textSize) {

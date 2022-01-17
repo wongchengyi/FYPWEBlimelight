@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:practice/page/components/logoButton.dart';
-import 'package:practice/page/components/roundedButton.dart';
-import 'package:practice/page/registrationPage/signUpPage/emailSignUpPage.dart';
-import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
-
+import '../../components/components.dart';
+import '../../components/textElevatedButton.dart';
 import 'emailSignUpInfoPage.dart';
+import 'emailSignUpPage.dart';
 
 class emailSignUpPage2 extends StatefulWidget {
   const emailSignUpPage2({Key? key}) : super(key: key);
@@ -94,13 +93,13 @@ class _emailSignUpPage2State extends State<emailSignUpPage2> {
                               SizedBox(
                                 height: size.height * 0.025,
                               ),
-                              roundedButton(
-                                  text: "USE EMAIL",
-                                  onPressed: () => Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) =>
-                                            emailSignUpInfoPage(), //can customize directed page
-                                      )))
+                              buildTextElevatedButton(
+                                  buttonText: 'Next',
+                                  directoryURL: emailSignUpPage(),
+                                  textSize: 0.0150,
+                                  buttonWidth: 100,
+                                  buttonHeight: 30,
+                                  size: size)
                             ],
                           )
                         ],

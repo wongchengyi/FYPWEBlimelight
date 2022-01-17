@@ -101,12 +101,12 @@ class optionButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            primary: Colors.greenAccent,
+            primary: Color.fromRGBO(202, 255, 231, 1),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             fixedSize: Size(120, 40)),
         child: Text(
-          'option 1',
+          buttonName,
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
         ));

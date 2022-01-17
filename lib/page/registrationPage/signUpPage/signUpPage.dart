@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:practice/page/components/logoButton.dart';
+import 'package:practice/page/pages.dart';
+import 'package:practice/page/registrationPage/signInPage/signInPage.dart';
+import 'package:practice/page/signUpFileComponents/signUpOccupationPicker.dart';
+
+import '../../components/textBuilders.dart';
+import '../../components/textElevatedButton.dart';
 
 class signUpPage extends StatefulWidget {
   const signUpPage({Key? key}) : super(key: key);
@@ -12,6 +18,7 @@ class signUpPage extends StatefulWidget {
 class _signUpPageState extends State<signUpPage> {
   @override
   Widget build(BuildContext context) {
+    bool checkedvalue = false;
     Size size = MediaQuery.of(context).size;
     final Shader linearGradient = LinearGradient(
       colors: <Color>[Colors.pink, Colors.green],
@@ -51,24 +58,40 @@ class _signUpPageState extends State<signUpPage> {
                             children: [
                               textBuilder(
                                   size: size,
-                                  text: 'text',
+                                  text: 'Are you a member ? ',
                                   color: Colors.black,
-                                  textSize: 0.025),
+                                  textSize: 0.015),
                               SizedBox(
-                                width: size.width * 0.01,
+                                width: size.width * 0.00075,
                               ),
-                              ElevatedButton(
-                                  onPressed: () {}, child: Text('text'))
+                              buildTextElevatedButton(
+                                  size: size,
+                                  buttonText: 'Sign In',
+                                  textSize: 0.0175,
+                                  directoryURL: signInPage(),
+                                  buttonWidth: 100,
+                                  buttonHeight: 30),
+                              SizedBox(
+                                width: size.width * 0.00075,
+                              ),
+                              buildTextElevatedButton(
+                                size: size,
+                                buttonText: 'Back',
+                                textSize: 0.0175,
+                                buttonWidth: 100,
+                                buttonHeight: 30,
+                                directoryURL: firstmenupage(),
+                              )
                             ],
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: size.height * 0.05,
+                        height: size.height * 0.025,
                       ),
                       Center(
                         child: Container(
-                          height: size.height * 0.8,
+                          height: size.height * 0.9,
                           width: size.width * 0.375,
                           //color: Colors.blue,
                           child: Padding(
@@ -91,6 +114,7 @@ class _signUpPageState extends State<signUpPage> {
                                       Row(
                                         children: <Widget>[
                                           Container(
+                                              padding: EdgeInsets.all(5),
                                               decoration: BoxDecoration(
                                                   color: Colors.black,
                                                   borderRadius:
@@ -153,7 +177,8 @@ class _signUpPageState extends State<signUpPage> {
                                   height: size.height * 0.01,
                                 ),
                                 Container(
-                                  height: size.height * 0.4,
+                                  //color: Colors.amber,
+                                  height: size.height * 0.5,
                                   width: size.width * 0.5,
                                   child: Padding(
                                     padding: const EdgeInsets.all(20.0),
@@ -191,12 +216,14 @@ class _signUpPageState extends State<signUpPage> {
                                           questionText: 'password',
                                           size: size,
                                         ),
-                                        Column(
+                                        Row(
                                           children: [
                                             //checkBox(),
+
                                             Text('terms and conditions')
                                           ],
                                         ),
+                                        optionButton(buttonName: "Sign Up")
                                       ],
                                     ),
                                   ),
@@ -214,31 +241,32 @@ class _signUpPageState extends State<signUpPage> {
   }
 }
 
-class textBuilder extends StatelessWidget {
-  final String text;
-  final double textSize;
-  final Color color;
-  const textBuilder(
-      {Key? key,
-      required this.size,
-      required this.text,
-      required this.color,
-      required this.textSize})
-      : super(key: key);
-
-  final Size size;
+/*class _checkBoxState extends State<checkBoxState> {
+  bool checkedvalue = false;
+  checkBox({
+    Key? key,
+    required this.checkedvalue,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: color,
-          fontSize: size.height * textSize),
-    );
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.blue;
+      }
+      return Colors.red;
+    }
+
+    return Checkbox(value: checkedvalue, onChanged: (bool? value) {
+      value=true;
+    });
   }
-}
+}*/
 
 class textfieldAnswer extends StatelessWidget {
   double widthSize;

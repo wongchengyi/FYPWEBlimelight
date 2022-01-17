@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:practice/page/components/roundedButton.dart';
+import 'package:practice/page/components/textElevatedButton.dart';
 import 'package:practice/page/registrationPage/signUpPage/labelandTextField.dart';
 import 'package:practice/page/registrationPage/signUpPage/passwordField.dart';
-import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
+import '../../components/components.dart';
 
 import 'emailSignUpPage.dart';
 
@@ -102,13 +102,20 @@ class _emailSignUpInfoPageState extends State<emailSignUpInfoPage> {
                               SizedBox(
                                 height: size.height * 0.025,
                               ),
-                              roundedButton(
+                              buildTextElevatedButton(
+                                  buttonText: 'Next',
+                                  directoryURL: emailSignUpPage(),
+                                  textSize: 0.0150,
+                                  buttonWidth: 100,
+                                  buttonHeight: 30,
+                                  size: size)
+                              /*roundedButton(
                                   text: "Next",
                                   onPressed: () => Navigator.of(context)
                                           .push(MaterialPageRoute(
                                         builder: (context) =>
                                             emailSignUpPage(), //can customize directed page
-                                      )))
+                                      )))*/
                             ],
                           )
                         ],

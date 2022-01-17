@@ -7,3 +7,4 @@ export 'userPosts.dart';
 export 'searchBar.dart';
 export 'courseInfo.dart';
 export '../dialog/badgeDialog.dart';
+export 'textBuilders.dart';

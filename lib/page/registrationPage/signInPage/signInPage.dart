@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
-import 'package:practice/page/components/components.dart';
 import 'package:practice/page/components/logoButton.dart';
-import 'package:practice/page/components/roundedButton.dart';
 import 'package:practice/page/registrationPage/signInPage/passwordInputField.dart';
-import 'package:practice/page/registrationPage/signInPage/textFieldContainer.dart';
 import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
 
+import '../../components/components.dart';
+import '../../components/textElevatedButton.dart';
+import '../../firstmenupage.dart';
 import 'inputFieldContainer.dart';
 
 class signInPage extends StatefulWidget {
@@ -100,10 +100,14 @@ class _signInPageState extends State<signInPage> {
                               SizedBox(
                                 height: size.height * 0.03,
                               ),
-                              roundedButton(
-                                text: "Login",
-                                onPressed: () {},
-                              ),
+                              buildTextElevatedButton(
+                                  size: size,
+                                  buttonText: 'Login',
+                                  textSize: 0.0150,
+                                  buttonWidth: 100,
+                                  buttonHeight: 30,
+                                  directoryURL: firstmenupage()),
+
                               SizedBox(
                                 height: size.height * 0.03,
                               ),
@@ -193,7 +197,14 @@ class registerLine extends StatelessWidget {
                   color: Colors.blue,
                   fontSize: size.height * 0.02,
                   fontWeight: FontWeight.bold),
-            ))
+            )),
+        buildTextElevatedButton(
+            size: size,
+            buttonText: 'Back to Welcome Page',
+            textSize: 0.0175,
+            buttonWidth: 200,
+            buttonHeight: 30,
+            directoryURL: firstmenupage()),
       ],
     ));
   }

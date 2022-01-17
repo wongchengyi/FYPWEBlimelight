@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
+import '../../components/components.dart';
 
 class passwordField extends StatelessWidget {
   const passwordField({

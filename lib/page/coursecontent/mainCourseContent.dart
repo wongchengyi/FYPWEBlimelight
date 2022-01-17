@@ -287,10 +287,17 @@ Widget courseDescription(BuildContext context, String title1, String content) {
 //for Company/organization details
 Widget organizationDetails(BuildContext context, String picURL, String title,
     String content, String enroll) {
-  String status = "ENROLL NOW";
+  var enroll_status = 0;
+  String getEnrollmentStatus() {
+    if (enroll_status == 1) {
+      return 'ENROLLED';
+    } else {
+      return 'ENROLL NOW';
+    }
+  }
+
+  ;
   return Container(
-      //alignment: Alignment.topLeft,
-      //color: Colors.blueAccent,
       height: 75,
       child: Row(
         children: [
@@ -312,33 +319,25 @@ Widget organizationDetails(BuildContext context, String picURL, String title,
                 ],
               )),
           Expanded(
-              flex: 1,
-              child: FlatButton(
-                  onPressed: () {},
-                  child: FlatButton(
-                    child: FittedBox(
-                      fit: BoxFit.fill,
-                      child: Text("$enroll".toUpperCase(),
-                          style: const TextStyle(
-                            //fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF222AC9),
-                          )),
-                    ),
-                    onPressed: () {
-                      dialog_Helper_Enroll.exit(context);
-                      enroll = "ENROLLED";
-
-                      /*Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (content) =>
-                                  dialog_Helper_Enroll.exit(context)));*/
-                    }, //=> changeText,
-                    color: Color(0xFF93FFBA),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                  )))
+            flex: 1,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(202, 255, 231, 1),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+                onPressed: () {
+                  enroll_status = 1;
+                  dialog_Helper_Enroll.exit(context);
+                  /*enroll = "ENROLLED";*/
+                },
+                child: Text(getEnrollmentStatus(),
+                    style: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ))),
+          )
         ],
       ));
 }

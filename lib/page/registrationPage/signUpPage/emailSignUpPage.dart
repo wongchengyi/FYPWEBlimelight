@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:practice/page/components/roundedButton.dart';
 import 'package:practice/page/registrationPage/signInPage/inputFieldContainer.dart';
 import 'package:practice/page/registrationPage/signUpPage/emailSignUpInfoPage.dart';
 import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
+
+import '../../components/textBuilders.dart';
+import '../../components/textElevatedButton.dart';
 
 class emailSignUpPage extends StatefulWidget {
   const emailSignUpPage({Key? key}) : super(key: key);
@@ -62,13 +64,13 @@ class _emailSignUpPageState extends State<emailSignUpPage> {
                               thisController: thisController,
                               hintText: 'Email',
                               onChanged: (String value) {}),
-                          roundedButton(
-                              text: 'Next',
-                              onPressed: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          emailSignUpInfoPage() //can customize directed page
-                                      )))
+                          buildTextElevatedButton(
+                              buttonText: 'Next',
+                              directoryURL: emailSignUpPage(),
+                              textSize: 0.0150,
+                              buttonWidth: 100,
+                              buttonHeight: 30,
+                              size: size)
                         ],
                       ),
                     ))

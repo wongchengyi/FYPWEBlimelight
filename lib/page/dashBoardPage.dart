@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:practice/constant.dart';
-import 'package:practice/page/components/SideDrawer.dart';
 import 'package:practice/page/components/components.dart';
 import 'package:practice/page/dialog/dialog_Helper_Reminder.dart';
-import 'package:practice/page/dialog/dialog_helper.dart';
+import 'package:practice/page/dialog/dialog_helper_badge.dart';
 
 import 'firstmenupage.dart';
 
@@ -41,8 +39,6 @@ class dashBoardPage extends StatelessWidget {
           fontWeight: FontWeight.bold,
         );
     Size size = MediaQuery.of(context).size;
-    //var dividerHeight = size.height * 0.8;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
@@ -140,7 +136,7 @@ class dashBoardPage extends StatelessWidget {
                                 children: <Widget>[
                                   FlatButton(
                                     onPressed: () {
-                                      dialogHelper.exit(context);
+                                      dialogHelper_badge.exit(context);
                                     },
                                     child: buildText2(
                                         GreenfontTheme, "Badge Wall"),
@@ -176,7 +172,8 @@ class dashBoardPage extends StatelessWidget {
                                 children: <Widget>[
                                   FlatButton(
                                     onPressed: () {
-                                      dialog_Helper_Reminder.exit(context);
+                                      //navigated to a pop up dialog called reminderDialog
+                                      dialogHelper_Reminder.exit(context);
                                     },
                                     child:
                                         buildText2(GreenfontTheme, "Reminders"),
