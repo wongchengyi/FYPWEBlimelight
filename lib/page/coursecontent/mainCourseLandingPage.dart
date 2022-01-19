@@ -263,7 +263,7 @@ class providedCourse extends StatelessWidget {
                     Text(
                       'In this course | description',
                       style: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
