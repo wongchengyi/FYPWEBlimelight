@@ -5,7 +5,7 @@ import 'package:practice/page/components/components.dart';
 import 'package:practice/page/components/contentBuilder.dart';
 import 'package:practice/page/pages.dart';
 
-import '../constant.dart';
+import '../../constant.dart';
 
 class coursePages extends StatefulWidget {
   const coursePages({Key? key}) : super(key: key);

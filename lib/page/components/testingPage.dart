@@ -3,6 +3,8 @@ import 'package:practice/constant.dart';
 import 'package:practice/page/badge/exportbadge.dart';
 import 'package:practice/page/chatPage/secondChatPage.dart';
 import 'package:practice/page/components/components.dart';
+import 'package:practice/page/coursecontent/coursesPage.dart';
+import 'package:practice/page/coursecontent/mainCourseLandingPage.dart';
 import 'package:practice/page/questionPage/mainQuestionPage.dart';
 import 'package:practice/page/registrationPage/signInPage/signInPage.dart';
 import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
@@ -65,10 +67,10 @@ class _testingPageState extends State<testingPage> {
             padding: EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
-                /*buildItem(
-                    text: "sign in test page",
-                    onClicked: () => SelectedMenu(context, 0)),
                 buildItem(
+                    text: "Main Course Page",
+                    onClicked: () => SelectedMenu(context, 0)),
+                /*buildItem(
                     text: "Sign Up Page",
                     onClicked: () => SelectedMenu(context, 1)),*/
                 buildItem(
@@ -116,7 +118,7 @@ class _testingPageState extends State<testingPage> {
     switch (i) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => signInPage(), //can customize directed page
+          builder: (context) => mainCourseLand(), //can customize directed page
         ));
         break;
       case 1:

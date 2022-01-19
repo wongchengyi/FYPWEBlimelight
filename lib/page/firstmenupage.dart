@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:practice/page/components/textElevatedButton.dart';
 import 'dart:io' show Platform;
-
 import 'package:practice/page/pages.dart';
 import 'package:practice/page/registrationPage/signInPage/secondarySignInPage.dart';
 import 'package:practice/page/registrationPage/signInPage/signInPage.dart';
 import 'package:practice/page/registrationPage/signUpPage/signUpPage.dart';
 
 import 'components/textBuilders.dart';
+import 'components/welcomeButtons.dart';
 
 //can use stack for the welcomepage
 class firstmenupage extends StatelessWidget {
@@ -18,59 +18,64 @@ class firstmenupage extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Stack(children: <Widget>[
-          Container(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: Colors.black),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => dashBoardPage()),
-                );
-              },
-              child: Center(
-                child: Container(
-                  alignment: Alignment.center,
-                  height: screenSize.height * 0.2,
-                  width: screenSize.width * 0.3,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(70),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(25),
-                        child: Column(
-                          children: [
-                            FittedBox(
-                              fit: BoxFit.fill,
-                              child: Text(
-                                "welcome to".toUpperCase(),
-                                style: const TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            FittedBox(
-                              fit: BoxFit.fill,
-                              child: Text(
-                                "limelight".toUpperCase(),
-                                style: const TextStyle(
-                                    fontSize: 50,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+          CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: welcomeButton(screenSize: screenSize),
               ),
-            ),
+              SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return Container(
+                    height: screenSize.height * 1,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          height: screenSize.height,
+                          //color: Colors.blue,
+                          child: Column(
+                            children: <Widget>[
+                              Center(
+                                child: Container(
+                                  //color: Colors.amber,
+                                  height: screenSize.height * 0.4,
+                                  width: screenSize.width * 0.5,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image(
+                                          image: AssetImage(
+                                              'assets/images/Blocklime_horizontal_official.png'))
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: double.maxFinite,
+                                height: screenSize.height * 0.6,
+                                color: Colors.black,
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      'About Us',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+                childCount: 1,
+              ))
+            ],
           ),
+
+          //buttons for sign in and sign up
           Positioned(
             right: 30,
             top: 30,
@@ -117,34 +122,6 @@ class firstmenupage extends StatelessWidget {
             ),
           ),
         ]),
-      ),
-    );
-  }
-}
-
-class Navbaritems extends StatelessWidget {
-  final String title;
-  final Function press;
-  const Navbaritems({
-    Key? key,
-    required this.title,
-    required this.press,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => press,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Text(
-          title.toUpperCase(),
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.grey,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
       ),
     );
   }
