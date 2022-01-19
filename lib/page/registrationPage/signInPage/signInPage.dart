@@ -73,9 +73,9 @@ class _signInPageState extends State<signInPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                "Log In",
+                                "SIGN IN",
                                 style: TextStyle(
-                                    fontSize: size.height * 0.025,
+                                    fontSize: size.height * 0.03,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(height: size.height * 0.035),

@@ -67,6 +67,9 @@ class _mainQuestionPageState extends State<mainQuestionPage> {
     //end of quiz
     if (questionIndex == _questions.length) {
       _resetQuiz();
+    }
+    ;
+    if (questionIndex == _questions.length - 1) {
       buttonTextNavigator = 'Restart Quiz';
     }
   }
@@ -79,6 +82,7 @@ class _mainQuestionPageState extends State<mainQuestionPage> {
       userTotalScore = 0;
       _scoreTrackerIcon = [];
       endOfQuiz = false;
+      buttonTextNavigator = 'Next Question';
     });
   }
 
@@ -205,7 +209,7 @@ class _mainQuestionPageState extends State<mainQuestionPage> {
                                                   questionText(
                                                       size,
                                                       //question index integer variable is being implemented
-                                                      'Question ${questionIndex}',
+                                                      'Question ${questionIndex + 1}',
                                                       Colors.lime,
                                                       0.03),
                                                   SizedBox(
@@ -345,8 +349,13 @@ final _questions = const [
   //index/question 0
   //to determine if the answer is the right or not simply change the "score" boolean value
   {
+    //the list/string collection is bound by {} and there is two sections which are "Question name" and "answersSelectionContent"
+    //each {} represents a "line collection of that particular string"
+    // index/list name is Question name, it's ID is Question Text 1 for this entire section
     'Question name': 'Question Text 1',
+    //under this question name section exists answersSelectionContent
     'answersSelectionContent': [
+      //is seperated by  , between values
       {'answerText': 'First Answer Text', 'score': true},
       {'answerText': 'Second Answer Text', 'score': false},
       {'answerText': 'Third Answer Text', 'score': false},

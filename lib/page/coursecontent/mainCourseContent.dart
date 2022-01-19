@@ -296,7 +296,7 @@ Widget organizationDetails(BuildContext context, String picURL, String title,
     }
   }
 
-  ;
+  String enrollText = 'ENROLL NOW';
   return Container(
       height: 75,
       child: Row(
@@ -326,12 +326,13 @@ Widget organizationDetails(BuildContext context, String picURL, String title,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
                 ),
+                //tell what to do, preferable add to the database that the thing has been confirmend
                 onPressed: () {
                   enroll_status = 1;
                   dialog_Helper_Enroll.exit(context);
-                  /*enroll = "ENROLLED";*/
                 },
-                child: Text(getEnrollmentStatus(),
+                child: Text('${enrollText}',
+                    //getEnrollmentStatus(),
                     style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.bold,

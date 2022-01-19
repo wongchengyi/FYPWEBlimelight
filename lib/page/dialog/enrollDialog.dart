@@ -124,8 +124,10 @@ class enrollDialog extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(30)),
                                     fixedSize: Size(150, 28)),
-                                onPressed: () {},
-                                child: Text("Confirmed".toUpperCase(),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text("Confirm".toUpperCase(),
                                     style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,

@@ -65,12 +65,12 @@ class _testingPageState extends State<testingPage> {
             padding: EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
-                buildItem(
+                /*buildItem(
                     text: "sign in test page",
                     onClicked: () => SelectedMenu(context, 0)),
                 buildItem(
                     text: "Sign Up Page",
-                    onClicked: () => SelectedMenu(context, 1)),
+                    onClicked: () => SelectedMenu(context, 1)),*/
                 buildItem(
                     text: "Sign up screen course picker",
                     onClicked: () => SelectedMenu(context, 2)),

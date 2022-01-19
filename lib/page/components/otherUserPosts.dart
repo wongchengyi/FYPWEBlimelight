@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/page/components/post_Content.dart';
 
 class otherUserPost extends StatefulWidget {
   const otherUserPost({Key? key}) : super(key: key);
@@ -34,6 +35,7 @@ Widget userPostsContainer(BuildContext context) {
 
 //white container for post section
 Widget usersContainer(BuildContext context) {
+  int post_index = 0;
   Size size = MediaQuery.of(context).size;
   return Container(
     height: size.height * 0.20,
@@ -63,7 +65,17 @@ Widget usersContainer(BuildContext context) {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: <Widget>[
+                  /*
+                  //specified section to insert post content
+                  ...(user_post_list[post_index]['post_content']
+                          as List<Map<String, dynamic>>)
+                      .map((pc) => post_Content(
+                            authorname: pc['author_name'],
+                            authorID: pc['author_ID'],
+                            postText: pc['post_mainbody'],
+                          ))*/
+
                   //username bold
                   userName(context, "john lee"),
                   //content
@@ -159,3 +171,19 @@ Widget interactionButton(String buttonPicURL, String count) {
         ],
       ));
 }
+
+final user_post_list = const [
+  //other user post 1
+  {
+    //collection named other users post
+    'other_user_post': 'ou_post1',
+    'post_content': [
+      //username
+      {'author_name': 'JOHN'},
+      //userid
+      {'author_ID': 'john123'},
+      //post content could be instantiate here calling from firebase or call directly to the container
+      {'post_mainbody': 'lorem ...'}
+    ]
+  }
+];
