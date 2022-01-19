@@ -3,6 +3,7 @@ import 'package:practice/page/components/components.dart';
 import 'package:practice/page/dialog/dialog_Helper_Enroll.dart';
 import 'package:practice/page/pages.dart';
 import 'package:practice/page/quizPage/mainQuizPage.dart';
+import '../questionPage/mainQuestionPage.dart';
 import 'exportCourseContent.dart';
 
 import '../../constant.dart';
@@ -287,6 +288,7 @@ Widget courseDescription(BuildContext context, String title1, String content) {
 //for Company/organization details
 Widget organizationDetails(BuildContext context, String picURL, String title,
     String content, String enroll) {
+  Size size = MediaQuery.of(context).size;
   var enroll_status = 0;
   String getEnrollmentStatus() {
     if (enroll_status == 1) {
@@ -320,28 +322,79 @@ Widget organizationDetails(BuildContext context, String picURL, String title,
               )),
           Expanded(
             flex: 1,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(202, 255, 231, 1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
+            child: Column(
+              children: [
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(202, 255, 231, 1),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                    ),
+                    //tell what to do, preferable add to the database that the thing has been confirmend
+                    onPressed: () {
+                      enroll_status = 1;
+                      dialog_Helper_Enroll.exit(context);
+                    },
+                    child: Text('${enrollText}',
+                        //getEnrollmentStatus(),
+                        style: const TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ))),
+                SizedBox(
+                  height: size.height * 0.01,
                 ),
-                //tell what to do, preferable add to the database that the thing has been confirmend
-                onPressed: () {
-                  enroll_status = 1;
-                  dialog_Helper_Enroll.exit(context);
-                },
-                child: Text('${enrollText}',
-                    //getEnrollmentStatus(),
-                    style: const TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ))),
-          )
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(202, 255, 231, 1),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                  ),
+                  //tell what to do, preferable add to the database that the thing has been confirmend
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          mainQuestionPage(), //can customize directed page
+                    ));
+                  },
+                  child: Text('Sample Quiz',
+                      //getEnrollmentStatus(),
+                      style: const TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      )),
+                ),
+              ],
+            ),
+          ),
+          //sample quiz button
         ],
       ));
 }
+/*
+ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromRGBO(202, 255, 231, 1),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+              ),
+              //tell what to do, preferable add to the database that the thing has been confirmend
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      mainQuestionPage(), //can customize directed page
+                ));
+              },
+              child: Text('Sample Quiz',
+                  //getEnrollmentStatus(),
+                  style: const TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  )),
+            ),*/
 
 Widget hashTags(String hashTagsText, int hashTagNum) {
   return Container(

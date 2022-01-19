@@ -7,6 +7,7 @@ import 'package:practice/page/pages.dart';
 import 'package:practice/page/badge/exportbadge.dart';
 import 'package:practice/page/profilePage/testProfilePage.dart';
 import '../CalendarPage2.dart';
+import '../coursecontent/mainCourseLandingPage.dart';
 import '../dashBoardPage.dart';
 
 class SideDrawer extends StatelessWidget {
@@ -77,11 +78,14 @@ class SideDrawer extends StatelessWidget {
             //7th property
             const SizedBox(height: 48),
             //method for listing out "properties in the sidedrawer"
-            buildMenuItem(
+
+            //i commented out the build menu item
+
+            /*buildMenuItem(
               text: 'Testing Page', //change text
               icon: Icons.supervised_user_circle_rounded, //change logo
               onClicked: () => SelectedItem(context, 6),
-            ),
+            ),*/
           ],
         ),
       ),
@@ -130,8 +134,8 @@ class SideDrawer extends StatelessWidget {
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) =>
-              mainCourseContent(), //can customize directed page
+          builder: (context) => mainCourseLand(),
+          //mainCourseContent(), //can customize directed page
         ));
         break;
       case 4:

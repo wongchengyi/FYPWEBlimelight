@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:practice/page/components/textElevatedButton.dart';
+import 'package:practice/page/coursecontent/exportCourseContent.dart';
 
 import '../../constant.dart';
 import '../components/SideDrawer.dart';
@@ -202,6 +204,9 @@ class _mainCourseLandState extends State<mainCourseLand> {
                         height: size.height * 0.5,
                         child: ListView(
                           children: [
+                            //do create own parameters to be bring forward into this widget
+                            //can refer back to previous widget on how i did it
+                            //i am too burn out at this point to do that
                             providedCourse(size: size),
                             providedCourse(size: size),
                             providedCourse(size: size),
@@ -267,6 +272,16 @@ class providedCourse extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  width: size.width * 0.6,
+                ),
+                buildTextElevatedButton(
+                    buttonText: 'View More',
+                    directoryURL: mainCourseContent(),
+                    textSize: 0.015,
+                    buttonWidth: 90,
+                    buttonHeight: 28,
+                    size: size)
               ],
             ),
           ),
